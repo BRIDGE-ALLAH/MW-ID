@@ -1,0 +1,4 @@
+# Runtime data and private deployment material must never be committed.
+/data/
+/tls/
+/server.toml
