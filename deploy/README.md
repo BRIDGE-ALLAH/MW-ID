@@ -7,7 +7,7 @@ This is a **single-node deployment starter** for the MW-ID fork. It builds the s
 ## Requirements
 
 - Linux host with Docker Engine and the Docker Compose plugin.
-- A DNS name dedicated to the identity service (the example uses `id.example.com`).
+- A DNS name dedicated to the identity service (the example uses `id.moonwitness.com`).
 - A valid TLS certificate and private key for that exact DNS name.
 - A persistent, backed-up storage location for the identity database.
 
@@ -20,9 +20,9 @@ From this directory:
 1. Copy the template with `cp server.toml.example server.toml`, then edit `server.toml`.
 2. Point the DNS record for your identity hostname to the server.
 3. Copy your certificate chain to `tls/fullchain.pem` and the matching private key to `tls/privkey.pem`.
-4. In `server.toml`, set both `domain` and `origin` to the same real hostname. For example, if the public URL is `https://identity.example.org`, use `identity.example.org` for `domain` and `https://identity.example.org` for `origin`.
+4. In `server.toml`, set both `domain` and `origin` to the same real hostname. For example, for this deployment, use `id.moonwitness.com` for `domain` and `https://id.moonwitness.com` for `origin`.
 
-Do not deploy with the placeholder `id.example.com`. The hostname is security-sensitive for WebAuthn and registered credentials; changing it later can invalidate credentials and tokens.
+Do not deploy with the placeholder `id.moonwitness.com`. The hostname is security-sensitive for WebAuthn and registered credentials; changing it later can invalidate credentials and tokens.
 
 ## 2. Prepare protected files
 
@@ -55,7 +55,7 @@ The service listens on TCP port `8443` with TLS. Restrict inbound access with th
 ## 4. Verify before onboarding users
 
 - Confirm the container is healthy: `docker compose ps`.
-- Open `https://YOUR_REAL_HOSTNAME:8443` and verify the certificate and hostname.
+- Open `https://id.moonwitness.com:8443` (or the public URL configured on your reverse proxy) and verify the certificate and hostname.
 - Complete an administrator bootstrap using the official Kanidm administration guide for the exact server version.
 - Test sign-in, sign-out, account recovery, MFA/passkey enrollment, and a backup/restore exercise in a non-production environment.
 - Verify that the configured backup directory contains fresh backups and that restore has been rehearsed.
