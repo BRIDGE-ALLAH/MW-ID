@@ -1,5 +1,5 @@
 # MW-ID container configuration.
-# Replace id.moonwitness.com with the real DNS name before starting the service.
+# Configured for id.moonwitness.com; change only if the deployment hostname changes.
 # The domain and origin MUST match the public hostname used by WebAuthn.
 version = "2"
 bindaddress = "0.0.0.0:8443"
