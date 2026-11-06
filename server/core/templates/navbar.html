@@ -5,14 +5,14 @@
             <img src="/ui/images/domain"
                 alt="(( navbar_ctx.domain_info.display_name() ))" width="auto" height="40" class="navbar-toggler-img" />
             (% else %)
-            <img
-                src="/pkg/img/logo.svg?v=((crate::https::cache_buster::get_cache_buster_key()))"
-                alt="(( navbar_ctx.domain_info.display_name() ))" width="auto" height="40" class="navbar-toggler-img" />
+            <span class="mw-id-wordmark mw-id-wordmark--nav" aria-label="MW-ID">MW</span>
             (% endif %)
-            <div class="ps-2">(( navbar_ctx.domain_info.display_name() ))</div>
+            <div class="ps-2">
+                <div>MW-ID</div>
+                <div class="mw-id-brand-caption">(( navbar_ctx.domain_info.display_name() ))</div>
+            </div>
         </a>
 
-        <!-- this shows a button on mobile devices to open the menu-->
         <button class="navbar-toggler navbar-brand" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false"
