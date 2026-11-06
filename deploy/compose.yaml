@@ -1,0 +1,33 @@
+name: mw-id
+
+services:
+  identity:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+      args:
+        KANIDM_BUILD_PROFILE: container_generic
+    image: mw-id:local
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./data:/data
+      - ./server.toml:/data/server.toml:ro
+      - ./tls/fullchain.pem:/data/chain.pem:ro
+      - ./tls/privkey.pem:/data/key.pem:ro
+    healthcheck:
+      test: [ "CMD", "/sbin/kanidmd", "scripting", "healthcheck" ]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3

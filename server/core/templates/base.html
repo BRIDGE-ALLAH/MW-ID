@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="theme-color" content="white" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="theme-color" content="#101b2d" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<title>(% block title %)(( title )) - Kanidm(% endblock %)</title>
+		<title>(% block title %)(( title )) - MW-ID(% endblock %)</title>
 
 		(% include "base_icons.html" %)
 
@@ -27,8 +27,10 @@
 	</head>
 	<body class="flex-column d-flex h-100">
 		(% block body %)(% endblock %)
-		<footer class="footer mt-auto py-3 bg-body-tertiary text-end">
-			<div class="container">
+		<footer class="footer mt-auto py-3">
+			<div class="container text-center">
+				<span>MW-ID · One identity. A connected universe.</span>
+				<span class="mx-2" aria-hidden="true">·</span>
 				<span title="Kanidm ((crate::KANIDM_PKG_VERSION))" class="text-muted">Powered by <a
 						href="https://kanidm.com">Kanidm</a></span>
 			</div>

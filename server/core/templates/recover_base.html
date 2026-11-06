@@ -8,9 +8,7 @@
 	<img src="/ui/images/domain"
 		alt="(( domain_info.display_name() ))" class="kanidm_logo" />
 	(% else %)
-	<img
-		src="/pkg/img/logo-square.svg?v=((crate::https::cache_buster::get_cache_buster_key()))"
-		alt="(( domain_info.display_name() ))" class="kanidm_logo" />
+	<div class="mw-id-wordmark mw-id-wordmark--large" aria-label="MW-ID">MW-ID</div>
 	(% endif %)
 	<h3>(( domain_info.display_name() ))</h3>
 

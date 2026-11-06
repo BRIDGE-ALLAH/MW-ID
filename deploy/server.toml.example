@@ -1,0 +1,15 @@
+# MW-ID container configuration.
+# Configured for id.moonwitness.com; change only if the deployment hostname changes.
+# The domain and origin MUST match the public hostname used by WebAuthn.
+version = "2"
+bindaddress = "0.0.0.0:8443"
+db_path = "/data/kanidm.db"
+tls_chain = "/data/chain.pem"
+tls_key = "/data/key.pem"
+domain = "id.moonwitness.com"
+origin = "https://id.moonwitness.com"
+
+[online_backup]
+path = "/data/backups/"
+schedule = "00 02 * * *"
+versions = 7
