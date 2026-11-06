@@ -54,6 +54,41 @@ Applications may share an identity foundation while retaining separate product r
 
 These names describe distinct responsibilities. Branding alignment does not merge their codebases or transfer authority. Any integration between this repository and ARSY or MoonWitness ID requires an explicit technical design, implementation, and verification.
 
+## Brand identity
+
+### Brand essence
+**Identity is the foundation of trust.**
+
+MW-ID stands for a dependable identity layer: clear enough to understand, disciplined enough to secure, and open enough to connect services without erasing their boundaries.
+
+### Brand attributes
+- **Trustworthy:** precise, transparent, and evidence-led.
+- **Calm:** confident without alarmism or exaggerated promises.
+- **Human-centred:** respectful of people, privacy, and agency.
+- **Connected:** designed for interoperability and clear service boundaries.
+- **Accountable:** explicit about ownership, permissions, and limitations.
+
+### Voice and writing
+Use direct, plain, technically accurate language. Prefer “supports,” “is designed to,” and “verified” over absolute claims. Explain security decisions and limitations. Avoid mystical or authoritarian language in technical product copy, and never imply that software has divine, legal, or moral authority.
+
+### Visual direction
+The visual system should feel like a trustworthy identity infrastructure product rather than a generic consumer social network.
+
+- **Primary palette:** midnight navy for stability; deep indigo for the identity layer; restrained cyan or teal for connection and active states; warm off-white for readable surfaces.
+- **Neutral palette:** slate and graphite for body text, borders, and secondary surfaces.
+- **Accent discipline:** use bright accents sparingly for links, focus, and meaningful status—not for decoration.
+- **Typography:** use a highly legible sans-serif for interface and body text; reserve a restrained display weight for the MW-ID wordmark and major headings. Prefer system fonts where possible for performance and consistency.
+- **Graphic language:** simple connected nodes, protected boundaries, rings, and pathways may communicate identity and trust. Avoid padlock clichés, surveillance imagery, religious symbols, and visual claims of absolute security.
+- **Accessibility:** maintain WCAG-conscious contrast, visible keyboard focus, scalable text, and meaning that is never conveyed by color alone.
+
+### Logo direction and usage
+The preferred logo direction is a distinctive **MW-ID wordmark** paired, when useful, with a compact abstract mark suggesting a verified identity within a connected network. The mark should remain legible at small sizes and work in monochrome. Do not distort, rotate, add effects to, or place the logo on low-contrast backgrounds. Until an approved logo asset is committed, use the plain text wordmark **MW-ID**; do not treat an improvised icon as the official logo.
+
+### Tagline
+**One identity. A connected universe.**
+
+Supporting brand promise: **Identity is the foundation of trust.**
+
 ## Product direction
 
 MW-ID is intended to support an identity foundation that can serve both people and non-human service principals over time. The long-term direction may include:
@@ -67,14 +102,6 @@ MW-ID is intended to support an identity foundation that can serve both people a
 
 These are product-direction statements, not assertions that each capability is implemented in this repository. Feature status must be established from source, tests, integration evidence, and release records.
 
-## Technical foundation and upstream attribution
-
-This repository is a fork of [Kanidm](https://github.com/kanidm/kanidm), an identity-management project. The existing source, architecture, dependencies, license obligations, notices, and upstream attribution must be preserved unless a reviewed technical and legal change explicitly establishes otherwise.
-
-The current codebase should therefore be treated as a Kanidm-derived technical baseline—not as proof that a distinct MW-ID product integration is complete. Consult the [upstream Kanidm documentation](https://kanidm.github.io/kanidm/stable/) for the inherited engine's behavior and capabilities.
-
-MW-ID is an independent project identity and is not an official Kanidm project or endorsed by the Kanidm maintainers.
-
 ## Scope boundaries
 
 - MW-ID branding does not make this repository the canonical identity authority for the ecosystem.
@@ -83,16 +110,42 @@ MW-ID is an independent project identity and is not an official Kanidm project o
 - Cross-domain SSO must not be claimed until issuer, audience, redirect, cookie, callback, logout, and revocation behavior are verified end to end.
 - Never claim passkeys, MFA, recovery, federation, or production readiness solely because an upstream dependency supports a related capability.
 
-## Brand promise
+## Delivery roadmap
 
-**MW-ID — Identity is the foundation of trust.**
+| Stage | Outcome | Completion evidence |
+|---|---|---|
+| **1. Brand foundation** | Consistent name, promise, voice, and ecosystem positioning | This README and approved brand assets |
+| **2. Repository clarity** | Clear upstream attribution, scope, status, and contribution boundaries | Reviewed repository docs and license notices |
+| **3. Product contract** | Defined identity, session, tenant, and authorization responsibilities | Versioned architecture and API specifications |
+| **4. Integration proof** | Verified interaction with MoonWitness ID and ARSY | Automated end-to-end tests and deployment evidence |
+| **5. Operational readiness** | Security, recovery, observability, and release processes | Security review, runbooks, backups, and release checklist |
 
-A connected universe begins with identity that is clear, secure, accountable, and worthy of trust.
+A stage is complete only when its evidence exists. A roadmap item is not a shipped feature.
+
+## Technical foundation and upstream attribution
+
+This repository is a fork of [Kanidm](https://github.com/kanidm/kanidm), an identity-management project. The existing source, architecture, dependencies, license obligations, notices, and upstream attribution must be preserved unless a reviewed technical and legal change explicitly establishes otherwise.
+
+The current codebase should therefore be treated as a Kanidm-derived technical baseline—not as proof that a distinct MW-ID product integration is complete. Consult the [upstream Kanidm documentation](https://kanidm.github.io/kanidm/stable/) for the inherited engine's behavior and capabilities.
+
+MW-ID is an independent project identity and is not an official Kanidm project or endorsed by the Kanidm maintainers.
+
+## Contribution and change policy
+
+- Keep branding and product documentation separate from changes to authentication, authorization, cryptography, and other security-sensitive behavior.
+- Preserve upstream copyright notices, license files, and attribution.
+- Every implementation claim must point to code, tests, or operational evidence.
+- Security-sensitive changes require focused review and tests; do not infer safety from a successful build alone.
+- Record deviations from upstream clearly so future maintainers can distinguish inherited behavior from MW-ID changes.
 
 ## Further reading
 
-- [Brand narrative and identity principles](BRANDING.md)
 - [MoonWitness ID product definition](https://github.com/bjo163/A-L-L-A-H.COM/blob/main/apps/id/README.md)
 - [MoonWitness ID blueprint](https://github.com/bjo163/A-L-L-A-H.COM/blob/main/apps/id/BLUEPRINT.md)
 - [MoonWitness XV master vision](https://github.com/bjo163/moonwitnessxv/blob/main/docs/vision/MASTER_VISION_NARRATIVE_XV.md)
+- [Legacy reconciliation](https://github.com/bjo163/A-L-L-A-H.COM/blob/main/LEGACY_RECONCILIATION.md)
 - [Kanidm upstream project](https://github.com/kanidm/kanidm)
+
+---
+
+**MW-ID — One identity. A connected universe.**
