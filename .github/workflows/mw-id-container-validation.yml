@@ -43,3 +43,31 @@ jobs:
             KANIDM_BUILD_PROFILE=container_generic
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  validate-deployment-config:
+    name: Validate deployment configuration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Validate Compose and server TOML
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp deploy/server.toml.example deploy/server.toml
+          mkdir -p deploy/data deploy/tls
+          touch deploy/tls/fullchain.pem deploy/tls/privkey.pem
+          python3 - <<'PY'
+          import tomllib
+          from pathlib import Path
+          config = tomllib.loads(Path("deploy/server.toml").read_text())
+          assert config["domain"] == "id.example.com"
+          assert config["origin"] == f"https://{config['domain']}"
+          assert config["online_backup"]["path"] == "/data/backups/"
+          print("Server TOML parsed; WebAuthn domain and origin agree.")
+          PY
+          docker compose -f deploy/compose.yaml config --quiet
+          echo "Docker Compose configuration is valid."
