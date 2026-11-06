@@ -64,7 +64,7 @@ jobs:
           import tomllib
           from pathlib import Path
           config = tomllib.loads(Path("deploy/server.toml").read_text())
-          assert config["domain"] == "id.example.com"
+          assert config["domain"] == "id.moonwitness.com"
           assert config["origin"] == f"https://{config['domain']}"
           assert config["online_backup"]["path"] == "/data/backups/"
           print("Server TOML parsed; WebAuthn domain and origin agree.")
