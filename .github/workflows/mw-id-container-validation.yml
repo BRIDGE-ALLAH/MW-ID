@@ -1,0 +1,45 @@
+name: MW-ID container validation
+
+on:
+  pull_request:
+    paths:
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - "libs/**"
+      - "proto/**"
+      - "server/**"
+      - "deploy/**"
+      - ".github/workflows/mw-id-container-validation.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mw-id-container-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-server-image:
+    name: Build MW-ID server image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build server image (no publish)
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: server/Dockerfile
+          platforms: linux/amd64
+          push: false
+          tags: mw-id:pull-request
+          build-args: |
+            KANIDM_BUILD_PROFILE=container_generic
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
