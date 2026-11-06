@@ -22,7 +22,7 @@ From this directory:
 3. Copy your certificate chain to `tls/fullchain.pem` and the matching private key to `tls/privkey.pem`.
 4. In `server.toml`, set both `domain` and `origin` to the same real hostname. For example, for this deployment, use `id.moonwitness.com` for `domain` and `https://id.moonwitness.com` for `origin`.
 
-Do not deploy with the placeholder `id.moonwitness.com`. The hostname is security-sensitive for WebAuthn and registered credentials; changing it later can invalidate credentials and tokens.
+Do not start the service until DNS resolves to this host and the matching TLS certificate and private key are installed. The hostname is security-sensitive for WebAuthn and registered credentials; changing it later can invalidate credentials and tokens.
 
 ## 2. Prepare protected files
 
