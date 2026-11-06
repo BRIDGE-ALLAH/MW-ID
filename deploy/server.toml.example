@@ -1,13 +1,13 @@
 # MW-ID container configuration.
-# Replace id.example.com with the real DNS name before starting the service.
+# Replace id.moonwitness.com with the real DNS name before starting the service.
 # The domain and origin MUST match the public hostname used by WebAuthn.
 version = "2"
 bindaddress = "0.0.0.0:8443"
 db_path = "/data/kanidm.db"
 tls_chain = "/data/chain.pem"
 tls_key = "/data/key.pem"
-domain = "id.example.com"
-origin = "https://id.example.com"
+domain = "id.moonwitness.com"
+origin = "https://id.moonwitness.com"
 
 [online_backup]
 path = "/data/backups/"
