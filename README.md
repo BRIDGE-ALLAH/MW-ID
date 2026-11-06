@@ -141,6 +141,7 @@ MW-ID is an independent project identity and is not an official Kanidm project o
 ## Further reading
 
 - [MW-ID brand guide](BRANDING.md)
+- [MW-ID ↔ ARSY integration plan](MW-ID_ARSY_INTEGRATION_PLAN.md)
 - [MoonWitness ID product definition](https://github.com/bjo163/A-L-L-A-H.COM/blob/main/apps/id/README.md)
 - [MoonWitness ID blueprint](https://github.com/bjo163/A-L-L-A-H.COM/blob/main/apps/id/BLUEPRINT.md)
 - [MoonWitness XV master vision](https://github.com/bjo163/moonwitnessxv/blob/main/docs/vision/MASTER_VISION_NARRATIVE_XV.md)
