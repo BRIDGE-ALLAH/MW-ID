@@ -17,9 +17,10 @@ The server uses TLS for its web interface. Keep LDAP disabled unless a reviewed 
 
 From this directory:
 
-1. Point the DNS record for your identity hostname to the server.
-2. Copy your certificate chain to `tls/fullchain.pem` and the matching private key to `tls/privkey.pem`.
-3. Edit `server.toml`: set both `domain` and `origin` to the same real hostname. For example, if the public URL is `https://identity.example.org`, use `identity.example.org` for `domain` and `https://identity.example.org` for `origin`.
+1. Copy the template with `cp server.toml.example server.toml`, then edit `server.toml`.
+2. Point the DNS record for your identity hostname to the server.
+3. Copy your certificate chain to `tls/fullchain.pem` and the matching private key to `tls/privkey.pem`.
+4. In `server.toml`, set both `domain` and `origin` to the same real hostname. For example, if the public URL is `https://identity.example.org`, use `identity.example.org` for `domain` and `https://identity.example.org` for `origin`.
 
 Do not deploy with the placeholder `id.example.com`. The hostname is security-sensitive for WebAuthn and registered credentials; changing it later can invalidate credentials and tokens.
 
