@@ -1,1 +1,174 @@
-/* custom styles */
+/* MW-ID visual layer — kept separate from inherited upstream styles. */
+:root {
+  --mwid-midnight: #101b2d;
+  --mwid-indigo: #3546a5;
+  --mwid-teal: #168c8c;
+  --mwid-ice: #eaf2f7;
+  --mwid-slate: #536273;
+  --mwid-radius: 1rem;
+  --mwid-shadow: 0 1rem 2.5rem rgb(16 27 45 / 9%);
+  --bs-primary: var(--mwid-indigo);
+  --bs-primary-rgb: 53, 70, 165;
+  --bs-link-color: var(--mwid-indigo);
+  --bs-link-hover-color: #26357f;
+  --bs-border-radius: .65rem;
+  --bs-border-radius-lg: .9rem;
+  --bs-focus-ring-color: rgb(53 70 165 / 28%);
+}
+
+html, body { min-height: 100%; }
+
+body {
+  color: var(--mwid-midnight);
+  background:
+    radial-gradient(ellipse at 8% 0%, rgb(22 140 140 / 9%), transparent 36rem),
+    linear-gradient(180deg, #f7fafc 0%, var(--mwid-ice) 100%);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .005em;
+}
+
+a { text-underline-offset: .18em; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgb(22 140 140 / 55%);
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
+
+.navbar {
+  min-height: 4.5rem;
+  background: rgb(255 255 255 / 88%) !important;
+  border-bottom: 1px solid rgb(16 27 45 / 8%);
+  box-shadow: 0 .35rem 1.25rem rgb(16 27 45 / 4%);
+  backdrop-filter: blur(14px);
+}
+.navbar .container-lg { gap: 1rem; }
+.navbar-brand { font-weight: 700; letter-spacing: -.035em; }
+.navbar-nav .nav-link {
+  border-radius: .6rem;
+  padding-inline: .85rem;
+  transition: background-color .15s ease, color .15s ease;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus-visible {
+  color: var(--mwid-indigo);
+  background: rgb(53 70 165 / 7%);
+}
+.mw-id-wordmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--mwid-midnight), var(--mwid-indigo));
+  border-radius: .8rem;
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1;
+  box-shadow: 0 .35rem .9rem rgb(53 70 165 / 20%);
+}
+.mw-id-wordmark--large { width: 4.25rem; height: 4.25rem; font-size: 1.25rem; margin-bottom: 1rem; }
+.mw-id-wordmark--nav { width: 2.35rem; height: 2.35rem; font-size: .8rem; border-radius: .65rem; }
+.mw-id-brand-caption { color: var(--mwid-slate); font-size: .82rem; letter-spacing: .01em; }
+
+#main.form-signin {
+  width: min(100% - 2rem, 32rem);
+  max-width: 32rem;
+  margin-block: clamp(2rem, 8vh, 5rem) !important;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: stretch !important;
+  border: 1px solid rgb(16 27 45 / 8%);
+  border-radius: var(--mwid-radius);
+  background: rgb(255 255 255 / 94%);
+  box-shadow: var(--mwid-shadow);
+}
+#main.form-signin > .mw-id-wordmark,
+#main.form-signin > img.kanidm_logo { align-self: center; }
+#main.form-signin > h3 {
+  color: var(--mwid-midnight);
+  font-size: clamp(1.35rem, 3vw, 1.65rem);
+  font-weight: 750;
+  letter-spacing: -.04em;
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+#main.form-signin > div { width: 100%; }
+.form-signin form { width: 100%; }
+.form-signin .form-label { color: var(--mwid-slate); font-size: .92rem; font-weight: 650; }
+.form-signin .form-control, .form-signin .form-select {
+  min-height: 2.9rem;
+  border-color: #d6e0e8;
+  background-color: #fff;
+}
+.form-signin .form-control:focus, .form-signin .form-select:focus {
+  border-color: var(--mwid-indigo);
+  box-shadow: 0 0 0 .22rem rgb(53 70 165 / 13%);
+}
+.btn-primary {
+  --bs-btn-bg: var(--mwid-indigo);
+  --bs-btn-border-color: var(--mwid-indigo);
+  --bs-btn-hover-bg: #293782;
+  --bs-btn-hover-border-color: #293782;
+  --bs-btn-active-bg: #202d6a;
+  --bs-btn-active-border-color: #202d6a;
+  --bs-btn-disabled-bg: var(--mwid-indigo);
+  --bs-btn-disabled-border-color: var(--mwid-indigo);
+  font-weight: 650;
+}
+.form-signin button[type="submit"] { min-height: 2.85rem; min-width: 8rem; border-radius: .7rem; }
+.form-signin .form-check-input:checked { background-color: var(--mwid-indigo); border-color: var(--mwid-indigo); }
+.form-signin a { font-weight: 600; }
+
+.card, .modal-content, .dropdown-menu {
+  border-color: rgb(16 27 45 / 9%);
+  border-radius: .9rem;
+  box-shadow: 0 .5rem 1.5rem rgb(16 27 45 / 5%);
+}
+.card-header { background: rgb(234 242 247 / 72%); border-bottom-color: rgb(16 27 45 / 8%); }
+.table { --bs-table-border-color: #e4ebf0; }
+.alert { border-radius: .75rem; }
+.badge { letter-spacing: .015em; }
+
+.footer {
+  color: var(--mwid-slate);
+  background: transparent !important;
+  border-top: 1px solid rgb(16 27 45 / 7%);
+  font-size: .82rem;
+}
+.footer a { color: var(--mwid-indigo); font-weight: 650; }
+
+[data-bs-theme="dark"] {
+  --bs-primary: #9aa8ff;
+  --bs-primary-rgb: 154, 168, 255;
+  --bs-link-color: #aebaff;
+  --bs-link-hover-color: #d0d7ff;
+  --bs-body-color: #e7edf5;
+  --bs-body-bg: #0c1422;
+  --bs-border-color: #29384d;
+  --bs-focus-ring-color: rgb(154 168 255 / 32%);
+}
+[data-bs-theme="dark"] body {
+  color: #e7edf5;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgb(22 140 140 / 14%), transparent 36rem),
+    linear-gradient(180deg, #101b2d 0%, #0c1422 100%);
+}
+[data-bs-theme="dark"] .navbar {
+  background: rgb(16 27 45 / 90%) !important;
+  border-bottom-color: rgb(255 255 255 / 9%);
+}
+[data-bs-theme="dark"] #main.form-signin {
+  color: #e7edf5;
+  background: rgb(20 33 52 / 96%);
+  border-color: rgb(255 255 255 / 10%);
+}
+[data-bs-theme="dark"] #main.form-signin > h3 { color: #f4f7fb; }
+[data-bs-theme="dark"] .form-signin .form-control,
+[data-bs-theme="dark"] .form-signin .form-select {
+  color: #e7edf5;
+  background-color: #101b2d;
+  border-color: #3a4b62;
+}
+[data-bs-theme="dark"] .card-header { background: #17263a; }
+[data-bs-theme="dark"] .footer { border-top-color: rgb(255 255 255 / 9%); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
